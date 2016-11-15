@@ -13,7 +13,7 @@ from setuptools import setup
 setup(
     name='AoikInspectArgs',
 
-    version='0.1.0',
+    version='0.1.1',
 
     description='Inspect function arguments.',
 
