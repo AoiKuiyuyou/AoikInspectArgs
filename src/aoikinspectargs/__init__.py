@@ -4,8 +4,8 @@ Package.
 """
 from __future__ import absolute_import
 
-# Internal imports
-import aoikinspectargs.aoikinspectargs as _aoikinspectargs
+# Local imports
+from . import aoikinspectargs as _aoikinspectargs
 
 
 # Support usage like:
