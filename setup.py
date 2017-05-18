@@ -2,7 +2,7 @@
 """
 Setup module.
 """
-from __future__ import absolute_import
+
 
 # External imports
 from setuptools import find_packages
