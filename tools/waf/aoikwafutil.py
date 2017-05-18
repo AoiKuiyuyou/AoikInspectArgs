@@ -6,7 +6,7 @@
 """
 Waf utility module.
 """
-from __future__ import absolute_import
+
 
 # Standard-library imports
 from datetime import datetime

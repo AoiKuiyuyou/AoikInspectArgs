@@ -2,7 +2,7 @@
 """
 This module contains an enumeration class decorator.
 """
-
+from __future__ import absolute_import
 
 
 # Version
@@ -134,7 +134,7 @@ class EnumMeta(type):
                     # For each valid enumeration value and name,
                     # sorted according to enumeration value.
                     for enum_value, enum_name in sorted(
-                        list(cls._map_value_to_name.items()),
+                        cls._map_value_to_name.items(),
                         key=lambda x: x[0]
                     ):
                         # Get text part
@@ -187,7 +187,7 @@ class EnumMeta(type):
         cls.__repr__ = new_repr
 
         # For given class' each attribute
-        for key, value in list(attrs.items()):
+        for key, value in attrs.items():
             # If the attribute name not starts with underscore.
             # It is considered as enumeration-value attribute.
             if not key.startswith('_'):

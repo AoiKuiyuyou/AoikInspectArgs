@@ -2,7 +2,7 @@
 """
 This module contains function that inspects a function's calling arguments.
 """
-
+from __future__ import absolute_import
 
 # Standard imports
 from collections import OrderedDict
@@ -286,7 +286,7 @@ def inspect_arguments_py2(func, args, kwargs):
         pending_poskwd_param_name_s = poskwd_param_names
 
     # For each keyword argument
-    for arg_name, arg_value in list(kwargs.items()):
+    for arg_name, arg_value in kwargs.items():
         # Find existing argument info
         existing_arg_info = fixed_arg_infos.get(arg_name, None)
 
@@ -351,7 +351,7 @@ def inspect_arguments_py2(func, args, kwargs):
     if poskwd_param_defaults:
         # Create dict
         map_poskwd_param_name_to_default_value = dict(
-            list(zip(reversed(poskwd_param_names), reversed(poskwd_param_defaults)))
+            zip(reversed(poskwd_param_names), reversed(poskwd_param_defaults))
         )
     # If not have default values
     else:
@@ -441,7 +441,7 @@ def signature_to_param_groups(sig):
     varkwd_param = None
 
     # For each parameter
-    for parameter in list(sig.parameters.values()):
+    for parameter in sig.parameters.values():
         # If the parameter type is variable-positional
         if parameter.kind == ParameterType.VAR_POSITIONAL:
             # Store variable-positional parameter
@@ -632,7 +632,7 @@ def inspect_arguments_py3(func, args, kwargs):
         pending_poskwd_param_name_s = poskwd_param_names
 
     # For each keyword argument
-    for arg_name, arg_value in list(kwargs.items()):
+    for arg_name, arg_value in kwargs.items():
         # Find existing argument info
         existing_arg_info = fixed_arg_infos.get(arg_name, None)
 
@@ -830,7 +830,7 @@ def format_inspect_info(
     fixed_arg_infos = info[InspectInfo.K_FIXED_ARG_INFOS]
 
     # For each fixed argument info
-    for fixed_arg_info in list(fixed_arg_infos.values()):
+    for fixed_arg_info in fixed_arg_infos.values():
         try:
             # Get argument value's repr text
             value_text = repr_func(fixed_arg_info.value)
@@ -914,7 +914,7 @@ def format_inspect_info(
 
     # For each variable-keyword argument info
     for varkwd_arg_info in sorted(
-        list(varkwd_arg_infos.values()), key=(lambda i: i.name)
+        varkwd_arg_infos.values(), key=(lambda i: i.name)
     ):
         try:
             # Get argument value's repr text
